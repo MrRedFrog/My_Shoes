@@ -19,6 +19,7 @@
     <div class="container-fluid">
       <div class="row">
         <form action=" " method="POST" class="col-6 mx-auto p-5 shadow-lg">
+          {% csrf_token %}
           <br>
           <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput">
@@ -31,7 +32,7 @@
           <div>
             <br>
             <div id="sign">
-                <a href="{% url 'indexFormulario' %}"><button type="button" class="btn btn-light">Crear cuenta</button></a>
+                <a href="{% url 'register' %}"><button type="button" class="btn btn-light">Crear cuenta</button></a>
             <button type="submit" class="btn btn-light" value="submit">Ingresar</button>
             </div>
           </div>
