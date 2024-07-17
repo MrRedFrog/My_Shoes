@@ -42,6 +42,36 @@ def guardar_usuario(request):
 
     return render(request, 'register.html')
 
+def guardar_categoria(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        descripcion = request.POST.get('descripcion')
+        imagen = request.FILES.get('imagen')
+
+        categoria = categoria(nombre=nombre, descripcion=descripcion, imagen=imagen)
+        categoria.save()
+
+        return redirect('categorias')
+    
+    return render(request, 'categorias.html')
+
+def guardar_producto(request):
+    if request.method == 'POST':
+        nombre = request.POST.get('nombre')
+        descripcion = request.POST.get('descripcion')
+        precio = request.POST.get('precio')
+        categoria_id = request.POST.get('categoria_id')
+        stock = request.POST.get('stock')
+        imagen = request.FILES.get('imagen')
+
+        categoria = categoria.objects.get(id=categoria_id)
+        producto = producto(nombre=nombre, descripcion=descripcion, precio=precio, categoria=categoria, stock=stock, imagen=imagen)
+        producto.save()
+
+        return redirect('productos')
+    
+    return render(request, 'productos.html')
+
 def index (request): 
     return render(request, 'index.html')
 

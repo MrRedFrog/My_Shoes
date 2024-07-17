@@ -194,8 +194,7 @@ width: auto;
     object-fit: cover;
 }
 .carousel{
-        max-width: 1200px;
-        margin: 0 auto;
+       width: 100%; 
 }
 .grid-item img {
     height: 280px; /* Cambia 200px por el valor que desees */
